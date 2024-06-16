@@ -2,6 +2,7 @@ import pyttsx3
 import speech_recognition
 import requests
 from bs4 import BeautifulSoup
+import datetime
 
 engine = pyttsx3.init("sapi5")
 voices = engine.getProperty("voices")
@@ -38,7 +39,7 @@ if __name__ == "__main__":
 
             while True:
                 query = takeCommand().lower()
-                if "go to sleep lucifer" in query:
+                if "go to sleep" in query:
                     speak("Ok sir, You can me call anytime")
                     break
                 elif "hello" in query:
@@ -72,4 +73,10 @@ if __name__ == "__main__":
                     data = BeautifulSoup(r.text,"html.parser")
                     weather = data.find("div", class_ = "BNeawe").text
                     speak(f"current {search} is {weather}")
+                elif "the time" in query:
+                    strTime = datetime.datetime.now().strftime("%H:%M")
+                    speak(f"sir, the time is {strTime}")
+                elif "finally sleep" in query:
+                    speak("Going to sleep, sir")
+                    exit()
                 
