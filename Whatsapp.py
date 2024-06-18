@@ -39,8 +39,8 @@ update = int((datetime.now() + timedelta(minutes=2)).strftime("%M"))
 
 def sendMessage():
     speak("Who do you want to message")
-    a = int(input('''Person 1 - 1
-              Person 2 - 2'''))
+    a = int(input('''Person 1 - 1 
+              Person 2 - 2 '''))
     if a == 1:
         speak("What's the message")
         message = str(input("Enter the message- "))

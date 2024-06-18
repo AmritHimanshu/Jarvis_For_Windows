@@ -149,6 +149,14 @@ if __name__ == "__main__":
                     remember = open("Remember.txt","r")
                     speak("You told me to remember that" + remember.read())
 
+                elif "shutdown system" in query:
+                    speak("Are you sure you want to shutdown your system?")
+                    shutdown = input("Do you want to shutdown your system? (yes/no): ")
+                    if shutdown == "yes":
+                        os.system("shutdown /s /t 1")
+                    elif shutdown == "no":
+                        break
+
                 elif "finally sleep" in query:
                     speak("Going to sleep sir, thank you")
                     exit()
