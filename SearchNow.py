@@ -51,6 +51,8 @@ def searchYoutube(query):
         speak("This is what I found for your search!")
         query = query.replace("lucifer","")
         query = query.replace("youtube search","")
+        query = query.replace("play","")
+        query = query.replace("the","")
         query = query.replace("youtube","")
         web = "https://www.youtube.com/results?search_query=" + query
         webbrowser.open(web)

@@ -4,6 +4,7 @@ import requests
 from bs4 import BeautifulSoup
 import datetime
 import os
+import pyautogui
 
 engine = pyttsx3.init("sapi5")
 voices = engine.getProperty("voices")
@@ -34,7 +35,7 @@ def alarm(query):
     timehere = open("Alarmtext.txt","a")
     timehere.write(query)
     timehere.close()
-    os.startfile("Alarm.py")
+    os.startfile("alarm.py")
 
 
 if __name__ == "__main__":
@@ -62,6 +63,28 @@ if __name__ == "__main__":
                 elif "thank" in query:
                     speak("You are welcome, sir")
 
+                elif "pause" in query:
+                    pyautogui.press("k")
+                    speak("Video paused")
+
+                elif "play" in query:
+                    pyautogui.press("k")
+                    speak("Video played")
+
+                elif "mute" in query:
+                    pyautogui.press("m")
+                    speak("Video muted")
+
+                elif "volume up" in query or "increase the volume" in query:
+                    from Keyboard import volumeup
+                    speak("Turning volume up,sir")
+                    volumeup()
+
+                elif "volume down" in query or "decrease the volume" in query:
+                    from Keyboard import volumedown
+                    speak("Turning volume down, sir")
+                    volumedown()
+
                 elif "open" in query:
                     from Dictapp import openappweb
                     openappweb(query)
@@ -81,6 +104,13 @@ if __name__ == "__main__":
                 elif "wikipedia" in query:
                     from SearchNow import searchWikipedia
                     searchWikipedia(query)
+
+                elif "set an alarm" in query:
+                    print("Input time example:- 10 and 10 and 10")
+                    speak("Set the time")
+                    a = input("Please tell the time :- ")
+                    alarm(a)
+                    speak("Done, sir")
 
                 elif "temperature" in query:
                     search = "temperature in bihar"
@@ -103,7 +133,19 @@ if __name__ == "__main__":
                     strTime = datetime.datetime.now().strftime("%H:%M")
                     speak(f"sir, the time is {strTime}")
 
+                elif "remember that" in query:
+                    rememberMessage = query.replace("lucifer","")
+                    rememberMessage = query.replace("remember that","")
+                    speak("You told me to remember that" + rememberMessage)
+                    remember = open("Remember.txt","w")
+                    remember.write(rememberMessage)
+                    remember.close()
+                
+                elif "what do you remember" in query:
+                    remember = open("Remember.txt","r")
+                    speak("You told me to remember that" + remember.read())
+
                 elif "finally sleep" in query:
-                    speak("Going to sleep, sir")
+                    speak("Going to sleep sir, thank you")
                     exit()
                 
