@@ -63,6 +63,26 @@ if __name__ == "__main__":
                 elif "thank" in query:
                     speak("You are welcome, sir")
 
+                elif "open" in query:
+                    from Dictapp import openappweb
+                    openappweb(query)
+
+                elif "close" in query:
+                    from Dictapp import closeappweb
+                    closeappweb(query) 
+                    
+                elif "google" in query:
+                    from SearchNow import searchGoogle
+                    searchGoogle(query)
+
+                elif "youtube" in query:
+                    from SearchNow import searchYoutube
+                    searchYoutube(query)
+
+                elif "wikipedia" in query:
+                    from SearchNow import searchWikipedia
+                    searchWikipedia(query)
+
                 elif "pause" in query:
                     pyautogui.press("k")
                     speak("Video paused")
@@ -85,32 +105,16 @@ if __name__ == "__main__":
                     speak("Turning volume down, sir")
                     volumedown()
 
-                elif "open" in query:
-                    from Dictapp import openappweb
-                    openappweb(query)
-
-                elif "close" in query:
-                    from Dictapp import closeappweb
-                    closeappweb(query) 
-                    
-                elif "google" in query:
-                    from SearchNow import searchGoogle
-                    searchGoogle(query)
-
-                elif "youtube" in query:
-                    from SearchNow import searchYoutube
-                    searchYoutube(query)
-
-                elif "wikipedia" in query:
-                    from SearchNow import searchWikipedia
-                    searchWikipedia(query)
-
                 elif "set an alarm" in query:
                     print("Input time example:- 10 and 10 and 10")
                     speak("Set the time")
                     a = input("Please tell the time :- ")
                     alarm(a)
                     speak("Done, sir")
+
+                elif "whatsapp" in query:
+                    from Whatsapp import sendMessage
+                    sendMessage()
 
                 elif "temperature" in query:
                     search = "temperature in bihar"

@@ -34,28 +34,28 @@ def closeappweb(query):
     if "one tab" in query or "1 tab" in query:
         pyautogui.hotkey("ctrl","w")
         speak("All tabs closed")
-    elif "2 tab" in query:
+    elif "2 tabs" in query or "two tabs" in query:
         pyautogui.hotkey("ctrl","w")
         sleep(0.5)
         pyautogui.hotkey("ctrl","w")
         speak("All tabs closed")
-    elif "3 tab" in query:
-        pyautogui.hotkey("ctrl","w")
-        sleep(0.5)
-        pyautogui.hotkey("ctrl","w")
-        sleep(0.5)
-        pyautogui.hotkey("ctrl","w")
-        speak("All tabs closed")
-    elif "4 tab" in query:
-        pyautogui.hotkey("ctrl","w")
-        sleep(0.5)
+    elif "3 tabs" in query or "three tabs" in query:
         pyautogui.hotkey("ctrl","w")
         sleep(0.5)
         pyautogui.hotkey("ctrl","w")
         sleep(0.5)
         pyautogui.hotkey("ctrl","w")
         speak("All tabs closed")
-    elif "5 tab" in query:
+    elif "4 tabs" in query or "four tabs" in query:
+        pyautogui.hotkey("ctrl","w")
+        sleep(0.5)
+        pyautogui.hotkey("ctrl","w")
+        sleep(0.5)
+        pyautogui.hotkey("ctrl","w")
+        sleep(0.5)
+        pyautogui.hotkey("ctrl","w")
+        speak("All tabs closed")
+    elif "5 tabs" in query or "five tabs" in query:
         pyautogui.hotkey("ctrl","w")
         sleep(0.5)
         pyautogui.hotkey("ctrl","w")
